@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <h3>User information</h3><hr>
+            <p><span class="font-weight-bold">Name: </span>{{customer.full_name}}</p>
+           
+            <p><span class="font-weight-bold">Email: </span>{{customer.user.email}}</p>
+        {% comment %} <p><span class="font-weight-bold">Mobile: </span>{{customer.mobile}}</p> {% endcomment %}
+            <p><span class="font-weight-bold">Address: </span>{{customer.address}}</p>
+            <p><span class="font-weight-bold">joined_on: </span>{{customer.joined_on}}</p>
+        </div>
+       
+    </div>
+</div>
+{% endblock %}

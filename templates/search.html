@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}search{% endblock title %}
+{% block body %}
+
+<div class="container">
+    <div class = "row">
+        <div class ="col-md-12">
+            <h5>  Search Results for<span class="text-info" >"{{request.GET.keyword}}"</span></h3>
+            </hr>
+            <div class="col-lg-9 mx-auto" >
+            <div class ="row mx-auto">
+            {%for result in results%}
+            {% comment %} <div class = "row">
+                <div class ="col-md-4">
+                    <img src="/media/{{result.image}}" alt=""class ="img-fluid"/>
+                </div>
+                  <div class ="col-md-8">
+                        <h4>{{result.name}}</h4>
+                        <p>{{result.what_included}}</p>
+                        <br/><br/>
+                  </div>
+                 
+            </div> {% endcomment %}
+            
+            
+                <div class="card mx-auto mb-3 shadow-sm" style="width:18rem;">
+                    <img src="/media/{{result.image}}" class=" card-img-top" alt="/"style="height: 250px;width: 300px;">            
+                        <div class="card-body"> 
+                            <p class="card-title">{{result.name}}</p>
+                            <p class="card-text">{{result.Duration}}</p>
+                            <p class="card-text"><i class="fa fa-inr"></i>&nbsp;{{result.price}}</p>
+                           
+                                <div class="btn-group">
+                                    <a href="addtocart/{{result.id}}" class="btn btn-primary cart">Add to Cart</a> &nbsp;&nbsp;&nbsp;
+                                    <a href="showservice/{{result.id}}"><button  class="btn btn-primary cart" id="qv{{result.id}}" >QuickView</button></a>
+                                </div>
+                            
+                        </div>
+                </div>
+             {%endfor%}
+        </div>
+    </div>
+{% comment %} </div> {% endcomment %}
+
+
+{% endblock body %}
